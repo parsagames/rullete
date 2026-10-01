@@ -16,12 +16,23 @@ android {
 
     signingConfigs {
         create("release") {
-            val storeFilePath = project.findProperty("RELEASE_STORE_FILE") as String?
-            val storePasswordValue = project.findProperty("RELEASE_STORE_PASSWORD") as String?
-            val keyAliasValue = project.findProperty("RELEASE_KEY_ALIAS") as String?
-            val keyPasswordValue = project.findProperty("RELEASE_KEY_PASSWORD") as String?
-            if (!storeFilePath.isNullOrBlank() && !storePasswordValue.isNullOrBlank() &&
-                !keyAliasValue.isNullOrBlank() && !keyPasswordValue.isNullOrBlank()) {
+            val storeFilePath =
+                project.findProperty("RELEASE_STORE_FILE") as String?
+
+            val storePasswordValue =
+                project.findProperty("RELEASE_STORE_PASSWORD") as String?
+
+            val keyAliasValue =
+                project.findProperty("RELEASE_KEY_ALIAS") as String?
+
+            val keyPasswordValue =
+                project.findProperty("RELEASE_KEY_PASSWORD") as String?
+
+            if (!storeFilePath.isNullOrBlank() &&
+                !storePasswordValue.isNullOrBlank() &&
+                !keyAliasValue.isNullOrBlank() &&
+                !keyPasswordValue.isNullOrBlank()
+            ) {
                 storeFile = file(storeFilePath)
                 storePassword = storePasswordValue
                 keyAlias = keyAliasValue
@@ -45,6 +56,6 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.webkit:webkit:1.12.1")
+    // The app uses Android's built-in WebView, so no external Kotlin/AndroidX
+    // dependencies are required. This avoids duplicate Kotlin stdlib classes.
 }
