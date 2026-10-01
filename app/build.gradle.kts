@@ -7,7 +7,7 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.myapp"
+        applicationId = "com.parsagames.rullet"
         minSdk = 23
         targetSdk = 35
         versionCode = 1
